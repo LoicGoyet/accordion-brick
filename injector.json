@@ -1,0 +1,11 @@
+{
+  "stylevendors": [
+    "@bower/accordion/accordion.scss"
+  ],
+  "stylegui": [
+    "@bower/accordion/gui/gui.scss"
+  ],
+  "gui": [
+    "@bower/accordion/gui/gui.html.twig"
+  ]
+}

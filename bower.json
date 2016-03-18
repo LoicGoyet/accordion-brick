@@ -1,0 +1,22 @@
+{
+  "name": "accordion",
+  "homepage": "https://github.com/LoicGoyet/accordion-brick",
+  "authors": [
+    "Loïc Goyet <loic@appventus.com>"
+  ],
+  "description": "HTML & CSS library for accordion",
+  "main": "accordion.scss",
+  "moduleType": [],
+  "keywords": [
+    "css",
+    "html"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
