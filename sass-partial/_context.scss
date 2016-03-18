@@ -1,0 +1,21 @@
+/// Contexts
+/// @author Hugo Giraudel
+/// @param {String | List} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// for accordion__toggle
+@mixin when-crdnanchor-hovered {
+  @include when-inside('.accordion__anchor:hover') {
+    @content;
+  }
+}
+
+@mixin when-crdnanchor-isopen {
+  @include when-inside('.accordion__anchor.is-open') {
+    @content;
+  }
+}

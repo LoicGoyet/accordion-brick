@@ -5,6 +5,12 @@
   "stylegui": [
     "@bower/accordion/gui/gui.scss"
   ],
+  "scripthead": [
+    "@bower/jquery/dist/jquery.min.js"
+  ],
+  "scriptfoot": [
+    "@bower/accordion/accordion.js"
+  ],
   "gui": [
     "@bower/accordion/gui/gui.html.twig"
   ]

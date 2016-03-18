@@ -2,6 +2,116 @@
  * accordion
  */
 
+@import 'sass-partial/parameters';
+@import 'sass-partial/default';
+@import 'sass-partial/context';
+
 .accordion {
-  
+  @include if-not-default-declaration('border-color', $accordion--border-color);
+  @include if-not-default-declaration('border-radius', $accordion--border-radius);
+  @include if-not-default-declaration('background-color', $accordion--background-color);
+  @include if-not-default-declaration('border-width', $accordion--border-width);
+  @include if-not-default-declaration('margin-bottom', $accordion--margin-bottom);
+  border-style: solid;
+  background-color: $accordion--background-color;
+  overflow: hidden;
+  position: relative;
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.accordion__anchor {
+  @include if-not-default-declaration('font-size', $accordion-anchor--font-size);
+  @include if-not-default-declaration('background-color', $accordion-anchor--background-color);
+  @include if-not-default-declaration('color', $accordion-anchor--color);
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+
+  @if $accordion-anchor-toggle--display {
+    @include if-not-default-declaration('padding', $accordion--padding-y ($accordion--padding-x + $accordion-toggle--width + $accordion--padding-x) $accordion--padding-y $accordion--padding-x);
+    position: relative; // if there is a toggle
+  } @else {
+    @include if-not-default-declaration('padding', $accordion--padding-y $accordion--padding-x);
+  }
+
+  @if $accordion-anchor--color != $accordion-anchor-hover--color {
+    transition-property: color;
+    transition-timing-function: $accordion-anchor--transition-timing-function;
+    transition-duration: $accordion-anchor--transition-duration;
+
+    &:hover,
+    &.is-open {
+      color: $accordion-anchor-hover--color;
+    }
+  }
+}
+
+.accordion__toggle {
+  @if $accordion-anchor-toggle--display {
+    @include if-not-default-declaration('transform', if($accordion--padding-y != 0, translateY(-50%), none));
+    @include if-not-default-declaration('background-color', $accordion-toggle--background-color);
+    @include if-not-default-declaration('border-radius', $accordion-toggle--border-radius);
+    width: $accordion-toggle--width;
+    height: $accordion-toggle--height;
+    display: inline-block;
+    position: absolute;
+    right: if($accordion--padding-x != 0, $accordion--padding-x, 0);
+    top: 50%;
+    text-align: center;
+
+    @if is-default-declaration('background-color', $accordion-toggle--background-color) {
+      transition-property: transform;
+      transition-timing-function: $accordion--transition-timing-function;
+      transition-duration: $accordion--transition-duration;
+    } @else {
+      transition-property: transform, background-color;
+      transition-timing-function: $accordion--transition-timing-function, $accordion-anchor--transition-timing-function;
+      transition-duration: $accordion--transition-duration, $accordion-anchor--transition-duration;
+    }
+
+    @if $accordion-toggle--background-color != $accordion-anchor-hover-toggle--background-color {
+      @include when-crdnanchor-hovered {
+        background-color: $accordion-anchor-hover-toggle--background-color;
+      }
+    }
+
+    @include when-crdnanchor-isopen {
+      transform: if($accordion--padding-y != 0, rotate(180deg) translateY(50%), rotate(180deg));
+    }
+  } @else {
+    display: none;
+  }
+}
+
+@if $accordion-anchor-toggle--display {
+  .accordion__toggle-icon {
+    height: $accordion-toggle--height;
+  }
+}
+
+.accordion__content {
+  height: 0;
+  transition-property: height;
+  transition-timing-function: $accordion--transition-timing-function;
+  transition-duration: $accordion--transition-duration;
+  will-change: height;
+
+  // scss-lint:disable ImportantRule
+  &.is-hidden {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    opacity: 0;
+    height: auto !important;
+    z-index: -1;
+  }
+  // scss-lint:enable ImportantRule
+}
+
+.accordion__body {
+  @include if-not-default-declaration('padding', $accordion--padding-y $accordion--padding-x);
 }

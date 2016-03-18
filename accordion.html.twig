@@ -1,3 +1,19 @@
-<div class="accordion">
-  hello world !
-</div>
+<section class="accordion">
+    <header class="accordion__header">
+        <a class="accordion__anchor" onclick="accordionToggle($(this))">
+            {% block title %}Hello world !{% endblock %}
+
+            <span class="accordion__toggle">
+                <svg class="accordion__toggle-icon" width="10" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.94.2c.268-.266.7-.266.97 0 .266.264.267.693 0 .96L5.04 4.95c-.268.266-.702.266-.97 0L.2 1.16C-.066.892-.066.463.2.2c.27-.266.702-.266.97 0l3.385 3.108L7.94.198z" fill="#FFF" fill-rule="evenodd"/>
+                </svg>
+            </span>
+        </a>
+    </header>
+
+    <article class="accordion__content">
+        <div class="accordion__body">
+            {% block content %}Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.{% endblock %}
+        </div>
+    </article>
+</section>

@@ -1,0 +1,57 @@
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/// Issue with lists like padding that can have a value 0 0 that do not match
+/// with the default value which is 0
+// 'font-size': (1em, inherit, medium), must accept lists
+
+$default-declaration: (
+  'border-color': currentColor,
+  'border-radius': 0,
+  'background-color': transparent,
+  'border-width': medium,
+  'color': inherit,
+  'padding': 0,
+  'padding-top': 0,
+  'padding-right': 0,
+  'padding-bottom': 0,
+  'padding-left': 0,
+  'margin': 0,
+  'margin-top': 0,
+  'margin-right': 0,
+  'margin-bottom': 0,
+  'margin-left': 0,
+  'font-size': 1em,
+  'transform': none,
+);
+
+@function do-strip-unit($value) {
+  @return type-of($value) == number and $value == 0;
+}
+
+@function is-default-declaration($property, $value) {
+  @each $default-property, $default-value in $default-declaration {
+
+    @if $property == $default-property {
+      $value: if(do-strip-unit($default-value), strip-unit($value), $value);
+
+      @return $value == $default-value;
+    }
+  }
+
+  @return false;
+}
+
+@mixin if-not-default-declaration($property, $value) {
+  @if not is-default-declaration($property, $value) {
+    #{$property}: $value;
+  }
+}

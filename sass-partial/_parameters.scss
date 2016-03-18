@@ -1,0 +1,25 @@
+$accordion--border-width: 0.0625em;
+$accordion--border-color: rgb(226, 226, 226);
+$accordion--background-color: transparent;
+$accordion--border-radius: 0.3125em;
+$accordion--padding-x: 1.1875em;
+$accordion--padding-y: 0.8125em;
+$accordion--margin-bottom: 0.625em;
+$accordion--transition-timing-function: ease;
+$accordion--transition-duration: 500ms;
+
+$accordion-anchor--font-size: 1em;
+$accordion-anchor--background-color: rgb(255, 255, 255);
+$accordion-anchor--color: inherit;
+$accordion-anchor-hover--color: rgb(138, 187, 40);
+$accordion-anchor-hover-toggle--background-color: rgb(98, 147, 0);
+$accordion-anchor--transition-timing-function: ease;
+$accordion-anchor--transition-duration: 100ms;
+
+
+$accordion-anchor-toggle--display: true; // bool
+$accordion-toggle--height: 1.5625em;
+$accordion-toggle--width: 1.5625em;
+$accordion-toggle--background-color: rgb(138, 187, 40);
+$accordion-toggle--border-radius: 0.125em;
+// $accordion-toggle--border-radius: 0 2em 2em 2em;

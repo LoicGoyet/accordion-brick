@@ -15,6 +15,11 @@ var report_error = function(error) {
     this.emit('end');
 };
 
+gulp.task('copy', function () {
+    return gulp.src(['accordion.js', 'test/src/bower_components/**/*'])
+        .pipe(gulp.dest('test/dest'));
+});
+
 gulp.task('styles', function () {
     return gulp.src('test/src/style.scss')
     .pipe($.sourcemaps.init())
@@ -59,9 +64,10 @@ gulp.task('watch', ['default'], function() {
         server: ['test/dest']
     });
 
+    gulp.watch('*.js', ['copy', reload]);
     gulp.watch('**/*.{scss, css}', ['styles', reload]);
     gulp.watch('**/*.{html.twig, twig}', ['templates', reload]);
 });
 
 
-gulp.task('default', ['styles', 'templates'], function() {});
+gulp.task('default', ['styles', 'templates', 'copy'], function() {});
