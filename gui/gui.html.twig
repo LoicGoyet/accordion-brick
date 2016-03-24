@@ -1,3 +1,13 @@
 <section>
   <h2>accordion</h2>
+
+  {% embed '@bower/accordion/accordion.html.twig' %}
+    {% block title %}Hello world !{% endblock %}
+    {% block content %}Content{% endblock %}
+  {% endembed %}
+
+  <pre>{{ "{% embed '@bower/accordion/accordion.html.twig' %}" }}
+  {{ "{% block title %}Hello world !{% endblock %}" }}
+  {{ "{% block content %}Content{% endblock %}" }}
+{{ "{% endembed %}" }}</pre>
 </section>
