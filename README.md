@@ -2,5 +2,5 @@
 
 ## Installation
 ```sh
-bower install accordion-brick
+bower install trowel-accordion
 ```
