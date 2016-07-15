@@ -1,6 +1,6 @@
 <section class="accordion">
     <header class="accordion__header">
-        <a class="accordion__anchor {% if isOpen == true %}is-open{% endif %} {% block anchor_extra_class %}{% endblock anchor_extra_class %}" onclick="accordionToggle($(this))" {% block anchor_attributes %}{% endblock anchor_attributes %}>
+        <a class="accordion__anchor {% if isOpen|default(false) %}is-open{% endif %} {% block anchor_extra_class %}{% endblock anchor_extra_class %}" onclick="accordionToggle($(this))" {% block anchor_attributes %}{% endblock anchor_attributes %}>
             {% block title %}Hello world !{% endblock %}
 
             <span class="accordion__toggle">
