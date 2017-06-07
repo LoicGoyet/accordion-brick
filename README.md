@@ -2,5 +2,5 @@
 
 ## Installation
 ```sh
-bower install trowel-accordion
+bower install silverhold-accordion
 ```

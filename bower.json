@@ -1,10 +1,10 @@
 {
-  "name": "trowel-accordion",
-  "homepage": "https://github.com/Trowel/accordion",
+  "name": "silverhold-accordion",
+  "homepage": "https://github.com/silverhold/accordion",
   "authors": [
     "Loïc Goyet <loic@appventus.com>"
   ],
-  "description": "A trowel component to display accordions",
+  "description": "A silverhold component to display accordions",
   "main": "accordion.scss",
   "moduleType": [],
   "keywords": [
